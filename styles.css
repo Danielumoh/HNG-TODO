@@ -22,8 +22,7 @@ body {
   margin: 2rem auto;
   background: var(--white);
   border: 3px solid var(--black);
-  /* box-shadow: var(--shadow); */
-  padding: 4rem;
+  padding: 2rem;
   border-radius: 20px;
   transition:
     transform 0.2s ease,
