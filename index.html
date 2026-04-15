@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo-app</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <article class="todo-card" data-testid="test-todo-card">
+      <div class="todo-header">
+        <h2 class="todo-title" data-testid="test-todo-title">
+          Build a testable todo app with HTML, CSS, and JavaScript
+        </h2>
+        <span>Priority Badge</span>
+        <span
+          class="priority-badge"
+          data-testid="test-todo-priority"
+          aria-label="Priority High"
+          >High</span
+        >
+      </div>
+
+      <p class="todo-description" data-testid="test-todo-description">
+        Review the final budget cuts and align with the design team before the
+        Friday deadline.
+      </p>
+
+      <div class="todo">
+        <span class="status-indicator" data-testid="test-todo-status"
+          >In Progress</span
+        >
+        <div class="time-box">
+          <time datetime="2026-03-01T18:00" data-testid="test-todo-due-date"
+            >Due Feb 18, 2026</time
+          >
+          <span
+            class="time-remaining"
+            data-testid="test-todo-time-remaining"
+            aria-live="polite"
+            >Due in 3 days</span
+          >
+        </div>
+      </div>
+
+      <ul class="tag-list" data-testid="test-todo-tags" role="list">
+        <li class="tag work" data-testid="test-todo-tag-work">Work</li>
+        <li class="tag urgent" data-testid="test-todo-tag-urgent">Urgent</li>
+      </ul>
+
+      <footer class="todo-actions">
+        <label class="completion-toggle">
+          <input type="checkbox" data-testid="test-todo-complete-toggle" />
+          <span class="custom-checkbox"></span>
+          <span class="label-text">Complete Task</span>
+        </label>
+
+        <div class="button-group">
+          <button
+            class="btn-edit"
+            data-testid="test-todo-edit-button"
+            aria-label="Edit"
+          >
+            Edit
+          </button>
+          <button
+            class="btn-delete"
+            data-testid="test-todo-delete-button"
+            aria-label="Delete"
+          >
+            Delete
+          </button>
+        </div>
+      </footer>
+    </article>
+    <script src="index.js"></script>
+  </body>
+</html>
