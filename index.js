@@ -1,7 +1,7 @@
 const state = {
   title: "Build a testable todo app with HTML, CSS, and JavaScript",
   description:
-    "Do your best to complete this task in a way that is testable and maintainable.",
+    "Create a simple todo card component that can be easily tested with Playwright. The card should display the task title, description, priority, status, and due date. It should also allow users to edit the task details, change its status, and see how much time is left until the due date.",
   priority: "High",
   status: "In Progress",
   dueDate: new Date("2026-03-01T18:00:00Z"),
