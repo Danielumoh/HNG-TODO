@@ -7,72 +7,190 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <article class="todo-card" data-testid="test-todo-card">
-      <div class="todo-header">
-        <h2 class="todo-title" data-testid="test-todo-title">
-          Build a testable todo app with HTML, CSS, and JavaScript
-        </h2>
-        <span>Priority Badge</span>
-        <span
-          class="priority-badge"
-          data-testid="test-todo-priority"
-          aria-label="Priority High"
-          >High</span
-        >
-      </div>
+    <div class="page-wrap">
+      <article class="todo-card" data-testid="test-todo-card">
+        <div class="view-mode" id="view-mode">
+          <div class="todo-header">
+            <div class="header-left">
+              <span
+                class="priority-indicator"
+                data-testid="test-todo-priority-indicator"
+                data-priority="High"
+                title="High Priority"
+              ></span>
+              <h2 class="todo-title" data-testid="test-todo-title">
+                Build a testable todo app with HTML, CSS, and JavaScript
+              </h2>
+            </div>
+            <span
+              class="priority-badge"
+              data-testid="test-todo-priority"
+              data-priority="High"
+              aria-label="Priority: High"
+              >High</span
+            >
+          </div>
 
-      <p class="todo-description" data-testid="test-todo-description">
-        Review the final budget cuts and align with the design team before the
-        Friday deadline.
-      </p>
-
-      <div class="todo">
-        <span class="status-indicator" data-testid="test-todo-status"
-          >In Progress</span
-        >
-        <div class="time-box">
-          <time datetime="2026-03-01T18:00" data-testid="test-todo-due-date"
-            >Due Feb 18, 2026</time
+          <div
+            id="collapsible-section"
+            data-testid="test-todo-collapsible-section"
+            class="collapsible-section collapsed"
           >
-          <span
-            class="time-remaining"
-            data-testid="test-todo-time-remaining"
-            aria-live="polite"
-            >Due in 3 days</span
-          >
-        </div>
-      </div>
-
-      <ul class="tag-list" data-testid="test-todo-tags" role="list">
-        <li class="tag work" data-testid="test-todo-tag-work">Work</li>
-        <li class="tag urgent" data-testid="test-todo-tag-urgent">Urgent</li>
-      </ul>
-
-      <footer class="todo-actions">
-        <label class="completion-toggle">
-          <input type="checkbox" data-testid="test-todo-complete-toggle" />
-          <span class="custom-checkbox"></span>
-          <span class="label-text">Complete Task</span>
-        </label>
-
-        <div class="button-group">
+            <p class="todo-description" data-testid="test-todo-description">
+              Review the final budget cuts and align with the design team before
+              the Friday deadline. Make sure all stakeholders have signed off on
+              the revised scope before any further work begins. Check with legal
+              regarding the updated compliance requirements for Q2.
+            </p>
+          </div>
           <button
-            class="btn-edit"
-            data-testid="test-todo-edit-button"
-            aria-label="Edit"
+            class="expand-toggle"
+            data-testid="test-todo-expand-toggle"
+            aria-expanded="false"
+            aria-controls="collapsible-section"
           >
-            Edit
+            Show more
           </button>
-          <button
-            class="btn-delete"
-            data-testid="test-todo-delete-button"
-            aria-label="Delete"
-          >
-            Delete
-          </button>
+
+          <div class="todo-meta">
+            <div class="status-row">
+              <span class="status-label">Status</span>
+              <span
+                class="status-indicator"
+                data-testid="test-todo-status"
+                data-status="In Progress"
+                >In Progress</span
+              >
+              <select
+                class="status-control"
+                data-testid="test-todo-status-control"
+                aria-label="Change task status"
+              >
+                <option value="Pending">Pending</option>
+                <option value="In Progress" selected>In Progress</option>
+                <option value="Done">Done</option>
+              </select>
+            </div>
+            <div class="time-box" data-testid="test-todo-time-box">
+              <time datetime="2026-03-01T18:00" data-testid="test-todo-due-date"
+                >Due Mar 1, 2026</time
+              >
+              <span
+                class="time-remaining"
+                data-testid="test-todo-time-remaining"
+                aria-live="polite"
+                >Calculating...</span
+              >
+              <span
+                class="overdue-indicator"
+                data-testid="test-todo-overdue-indicator"
+                style="display: none"
+                aria-live="polite"
+                >Overdue</span
+              >
+            </div>
+          </div>
+
+          <ul class="tag-list" data-testid="test-todo-tags" role="list">
+            <li class="tag work" data-testid="test-todo-tag-work">Work</li>
+            <li class="tag urgent" data-testid="test-todo-tag-urgent">
+              Urgent
+            </li>
+          </ul>
+
+          <footer class="todo-actions">
+            <label class="completion-toggle">
+              <input
+                type="checkbox"
+                data-testid="test-todo-complete-toggle"
+                aria-label="Mark task complete"
+              />
+              <span class="custom-checkbox">✓</span>
+              <span class="label-text">Complete Task</span>
+            </label>
+            <div class="button-group">
+              <button
+                class="btn-edit"
+                data-testid="test-todo-edit-button"
+                aria-label="Edit task"
+              >
+                Edit
+              </button>
+              <button
+                class="btn-delete"
+                data-testid="test-todo-delete-button"
+                aria-label="Delete task"
+              >
+                Delete
+              </button>
+            </div>
+          </footer>
         </div>
-      </footer>
-    </article>
+
+        <div
+          class="edit-form"
+          data-testid="test-todo-edit-form"
+          id="edit-form"
+          role="region"
+          aria-label="Edit task form"
+        >
+          <div class="edit-form-row">
+            <label for="edit-title"
+              >Title
+              <input
+                type="text"
+                id="edit-title"
+                data-testid="test-todo-edit-title-input"
+              />
+            </label>
+          </div>
+          <label for="edit-description"
+            >Description
+            <textarea
+              id="edit-description"
+              data-testid="test-todo-edit-description-input"
+            ></textarea>
+          </label>
+          <div class="edit-form-row">
+            <label for="edit-priority"
+              >Priority
+              <select
+                id="edit-priority"
+                data-testid="test-todo-edit-priority-select"
+              >
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </label>
+            <label for="edit-due-date"
+              >Due Date
+              <input
+                type="datetime-local"
+                id="edit-due-date"
+                data-testid="test-todo-edit-due-date-input"
+              />
+            </label>
+          </div>
+          <div class="edit-actions">
+            <button
+              class="btn-cancel"
+              data-testid="test-todo-cancel-button"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              class="btn-save"
+              data-testid="test-todo-save-button"
+              type="button"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
